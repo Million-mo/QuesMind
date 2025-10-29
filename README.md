@@ -254,6 +254,22 @@ MIT License
 
 如有问题或建议,请提交 Issue。
 
+### 关注我们
+
+<div align="center">
+
+**扫码关注微信公众号，获取更多学习资源** 📱
+
+<img src="./public/wechat-qrcode.jpg" alt="微信公众号" width="200"/>
+
+</div>
+
 ---
 
+<div align="center">
+
 **QuesMind** - 让学习更高效! 🎓
+
+*Made with ❤️ by QuesMind Team*
+
+</div>
