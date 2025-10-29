@@ -4,9 +4,11 @@
 
 ## 🚀 项目特性
 
-- ✅ **智能问答生成**: 利用 GPT-4o-mini 自动从文章中提取关键知识点并生成问答对
+- ✅ **智能问答生成**: 利用 AI 自动从文章中提取关键知识点并生成问答对
 - ✅ **AI 实时评估**: 智能评估用户答案并提供个性化改进建议
 - ✅ **多格式支持**: 支持文本粘贴、TXT、PDF、DOCX 文件上传
+- ✅ **URL 导入**: 支持从网页链接直接导入文章内容
+- ✅ **多 AI 提供商**: 支持 OpenAI 和 DeepSeek,可灵活切换
 - ✅ **进度追踪**: 可视化学习进度和统计数据
 - ✅ **间隔重复**: 基于遗忘曲线的智能复习提醒
 
@@ -25,8 +27,9 @@
 - **文件存储**: Supabase Storage
 
 ### AI 服务
-- **模型**: OpenAI GPT-4o-mini
+- **模型**: OpenAI GPT-4o-mini / DeepSeek Chat (可配置)
 - **文件解析**: pdf-parse, mammoth
+- **网页抓取**: cheerio
 
 ## 📦 快速开始
 
@@ -53,12 +56,33 @@ NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 
+# AI 配置
+# 选择 AI 提供商: openai 或 deepseek
+AI_PROVIDER=openai
+
 # OpenAI 配置
 OPENAI_API_KEY=your_openai_api_key
+
+# DeepSeek 配置 (可选)
+DEEPSEEK_API_KEY=your_deepseek_api_key
 
 # 应用配置
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
+
+#### 配置 AI 提供商
+
+**使用 OpenAI:**
+1. 访问 [OpenAI Platform](https://platform.openai.com/)
+2. 创建 API Key
+3. 设置 `AI_PROVIDER=openai` 和 `OPENAI_API_KEY`
+
+**使用 DeepSeek (推荐,性价比高):**
+1. 访问 [DeepSeek 平台](https://platform.deepseek.com/)
+2. 创建 API Key
+3. 设置 `AI_PROVIDER=deepseek` 和 `DEEPSEEK_API_KEY`
+
+详细配置指南: [AI_PROVIDERS.md](./AI_PROVIDERS.md) | [DeepSeek 快速开始](./DEEPSEEK_QUICKSTART.md)
 
 ### 4. 初始化数据库
 

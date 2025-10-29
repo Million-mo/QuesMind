@@ -1,4 +1,4 @@
-import { openai, DEFAULT_MODEL } from './client';
+import { aiClient, DEFAULT_MODEL, CURRENT_PROVIDER } from './client';
 import type { QAGenerationPrompt, GeneratedQAPair } from '@/types';
 
 /**
@@ -21,7 +21,7 @@ export class QAGenerationService {
     const userPrompt = this.buildUserPrompt(articleContent, questionCount);
 
     try {
-      const response = await openai.chat.completions.create({
+      const response = await aiClient.chat.completions.create({
         model: DEFAULT_MODEL,
         messages: [
           { role: 'system', content: systemPrompt },
@@ -42,7 +42,7 @@ export class QAGenerationService {
       // 验证并转换结果
       return this.validateAndTransformQAPairs(result.qaPairs || []);
     } catch (error) {
-      console.error('问答生成失败:', error);
+      console.error(`问答生成失败 (${CURRENT_PROVIDER}):`, error);
       throw new Error('问答生成失败,请稍后重试');
     }
   }

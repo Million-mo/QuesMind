@@ -1,4 +1,4 @@
-import { openai, DEFAULT_MODEL } from './client';
+import { aiClient, DEFAULT_MODEL, CURRENT_PROVIDER } from './client';
 import type { AnswerEvaluationPrompt, EvaluationResult } from '@/types';
 
 /**
@@ -19,7 +19,7 @@ export class AnswerEvaluationService {
     const userPrompt = this.buildUserPrompt(question, standardAnswer, userAnswer);
 
     try {
-      const response = await openai.chat.completions.create({
+      const response = await aiClient.chat.completions.create({
         model: DEFAULT_MODEL,
         messages: [
           { role: 'system', content: systemPrompt },
@@ -40,7 +40,7 @@ export class AnswerEvaluationService {
       // 验证并返回结果
       return this.validateAndTransformResult(result);
     } catch (error) {
-      console.error('答案评估失败:', error);
+      console.error(`答案评估失败 (${CURRENT_PROVIDER}):`, error);
       throw new Error('答案评估失败,请稍后重试');
     }
   }

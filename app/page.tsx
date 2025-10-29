@@ -15,7 +15,7 @@ export default function Home() {
             AI 驱动的主动学习系统
           </p>
           <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto">
-            通过"输入内容 → 生成问答 → 自我测试 → AI 评估 → 记忆巩固"的闭环流程,帮助您高效掌握知识
+            通过&quot;输入内容 → 生成问答 → 自我测试 → AI 评估 → 记忆巩固&quot;的闭环流程,帮助您高效掌握知识
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <Link href="/auth/login">
